@@ -1,0 +1,84 @@
+*{
+  /* outline: 1px solid black; */
+  margin: 0;
+}
+
+/*見やすくするための*/
+
+/* body{
+  background-color:blue;
+}
+
+main{
+  background-color: blueviolet;
+}
+
+header{
+  background-color: brown;
+}
+
+h1{
+  background-color: burlywood;
+}
+
+section{
+  background-color: cadetblue;
+}
+
+.list{
+  background-color: chartreuse;
+}
+
+p{
+  background-color: chocolate;
+}
+
+ul{
+  background-color: coral;
+} */
+/*ここまで*/
+
+header{
+  padding: 20px;
+}
+
+header h1{
+  text-align: center;
+  margin: 20px 20px;
+}
+
+em{
+  color: aqua;
+  margin: 10px;
+}
+
+/* header ::before{
+  border-top: 10px solid red;
+} */
+
+section{
+  padding: 20px;
+}
+
+section .list{
+  /* height: 250px; */
+  /* overflow-y: auto; */
+  border: 1px solid black;
+}
+
+.list ul{
+  height: 250px;
+  overflow-y: auto;
+
+}
+
+.list p{
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.list ul li{
+  border-bottom: 1px solid black;
+}
+.list ul li .date{
+  text-align: end;
+}
