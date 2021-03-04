@@ -1,7 +1,7 @@
 <?php
 // echo "hi";
 date_default_timezone_set("Asia/Tokyo");
-
+session_start();
 $id=null;
 $title=null;
 $text=null;
@@ -9,7 +9,7 @@ $tit=null;
 $txt=null;
 $date=null;
 $send_flag=null;
-
+// $_SESSION['login_flag']=null;
 $pdo=new PDO("mysql:dbname=myblog;host=localhost;  charset=utf8;","root","password");
 
 if($pdo){
@@ -61,7 +61,24 @@ if(!empty($_POST['submit'])){
 
     echo "<script>alert('投稿完了');window.location.href = './write.php';</script>";
   }
+  echo "<script>window.location.href = './write.php';</script>";
 }
+
+if(!empty($_POST['login_btn'])){
+  $login_password= $_POST['password'];
+  $fileopen=fopen("password.txt","r");
+  $line=fgets($fileopen);
+  // echo $login_password."<br>".$line;
+  if($line==$login_password){
+    $_SESSION['login_flag']=true;
+  }
+}
+
+if(!empty($_POST['logout'])){
+  unset($_SESSION['login_flag']);
+  echo "<script>alert('ログアウトしました');</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -74,6 +91,13 @@ if(!empty($_POST['submit'])){
 </head>
 <body>
 <main>
+<?php if(empty($_SESSION['login_flag'])): ?>
+  <form action="" method="POST">
+    <label for="password"><h1>ログイン</h1></label>
+    <input type="password" name="password" id="password" placeholder="パスワードを入力">
+    <input type="submit" name="login_btn" value="ログイン">
+  </form>
+<?php else: ?>
   <header>
     <h1><em>&lt;</em>投稿<em>&gt;</em></h1>
   </header>
@@ -88,10 +112,13 @@ if(!empty($_POST['submit'])){
       </div>
       <textarea name="text" id="text" cols="30" rows="10" placeholder="内容を入力"></textarea>
       <div class="submit">
-        <input type="submit" name="submit" value="投稿">        
+        <input type="submit" name="submit" value="投稿">
+        <input type="submit" name="logout" value="ログアウト">
       </div>
+      <a href="changepassword.php">パスワード変更</a>
     </form>
   </section>
+<?php endif; ?>
 </main>
 </body>
 </html>
