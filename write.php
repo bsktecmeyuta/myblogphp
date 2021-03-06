@@ -116,6 +116,7 @@ if(!empty($_POST['logout'])){
         <input type="submit" name="logout" value="ログアウト">
       </div>
       <a href="changepassword.php">パスワード変更</a>
+      <a href="contentsadmin.php">記事編集</a>
     </form>
   </section>
 <?php endif; ?>

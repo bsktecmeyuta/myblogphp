@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  /* outline: 1px solid black; */
+}
+
+header{
+  padding: 20px;
+}
+
+header h1{
+  text-align: center;
+  margin: 20px 20px;
+}
+
+em{
+  color: aqua;
+  margin: 10px;
+}
+
+header p{
+  text-align: end;
+  /* text-decoration: underline;
+  text-decoration-color: aqua; */
+}
+
+section{
+  margin: 20px;
+  /* padding: 10px; */
+  text-align: center;
+  border: 1px solid black;
+}
+
+section p{
+  text-align: left;
+  margin:  10px;
+  border-bottom: 1px solid black;
+}
+
+section a{
+  margin: 10px;
+}

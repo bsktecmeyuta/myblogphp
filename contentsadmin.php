@@ -1,4 +1,5 @@
 <?php
+session_start();
 // echo "say hello";
 $pdo=new PDO("mysql:dbname=myblog;host=localhost;  charset=utf8;","root","password");
 
@@ -6,6 +7,14 @@ if($pdo){
   // echo "OK";
 }else{
   // echo "NO";
+}
+
+if(!empty($_SESSION['login_flag'])){
+  $fileopen=fopen("password.txt","r");
+  $line=fgets($fileopen);
+  // echo $line;
+}else{
+  echo "<script>window.location.href = './write.php';</script>";
 }
 
 $sql="SELECT * FROM contents ORDER BY date ASC";
@@ -17,13 +26,13 @@ $stmt=$pdo->query($sql);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事編集</title>
   <link rel="stylesheet" href="style/main.css">
-  <title>My Blog</title>
 </head>
 <body>
   <main>
     <header>
-      <h1><em>&lt;</em>My Blog<em>&gt;</em></h1>
+      <h1><em>&lt;</em>記事編集<em>&gt;</em></h1>
     </header>
     <section>
       <div class="list">
@@ -31,12 +40,15 @@ $stmt=$pdo->query($sql);
         <ul>
           <?php foreach($stmt as $value): ?>
             <li>
-              <a href="view.php?id=<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a>
-              <div class="date">更新日:<?php echo $value['date']; ?></div>
+              <!-- <a href="view.php?id=<?php echo $value['id']; ?>"> -->
+                <?php echo $value['title']; ?>
+              <!-- </a> -->
+              <div class="date"><form action="edit.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="編集"></form> 更新日:<?php echo $value['date']; ?></div>
             </li>
           <?php endforeach; ?>
         </ul>
       </div>
+      <div class="backto"><a href="write.php">戻る</a></div>
     </section>
   </main>
 </body>
