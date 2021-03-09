@@ -41,9 +41,26 @@ $stmt=$pdo->query($sql);
           <?php foreach($stmt as $value): ?>
             <li>
               <!-- <a href="view.php?id=<?php echo $value['id']; ?>"> -->
+              <div>
                 <?php echo $value['title']; ?>
+              </div>
               <!-- </a> -->
-              <div class="date"><form action="edit.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="編集"></form><form action="delete.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="削除"></form> 更新日:<?php echo $value['date']; ?></div>
+              <div class="date">
+                <div class="forms">
+                  <form action="edit.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                    <input type="submit" value="編集">
+                  </form>
+                  <form action="delete.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                    <input type="submit" value="削除">
+                  </form>
+                </div>
+                 
+                 <!-- <div class="date2"> -->
+                  更新日:<?php echo $value['date']; ?>
+                 <!-- </div> -->
+              </div>
             </li>
           <?php endforeach; ?>
         </ul>

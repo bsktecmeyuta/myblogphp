@@ -35,6 +35,10 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
 }else{
   echo "<script>window.location.href = './index.php';</script>";
 }
+
+$num =$_GET['id'];
+$num =( int )$num;
+// echo $num;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -53,7 +57,9 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
     </header>
     <section>
       <p><?php echo nl2br($text); ?></p>
+      <a href="view.php?id=<?php echo $num-1; ?>">&lt;</a>
       <a href="index.php">戻る</a>
+      <a href="view.php?id=<?php echo $num+1; ?>">&gt;</a>
     </section>
   </main>
 </body>

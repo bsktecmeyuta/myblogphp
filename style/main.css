@@ -85,4 +85,14 @@ section .list{
 }
 .list ul li .date{
   text-align: end;
+  /* display: flex; */
+}
+
+/* .date2{
+  text-align: end;
+  margin: 0 100px;
+} */
+
+.forms{
+  display: flex;
 }

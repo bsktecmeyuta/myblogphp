@@ -10,6 +10,10 @@ if($pdo){
 
 $sql="SELECT * FROM contents ORDER BY date ASC";
 $stmt=$pdo->query($sql);
+
+$sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
+$stmt2=$pdo->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
