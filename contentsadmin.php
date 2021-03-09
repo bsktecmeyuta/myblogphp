@@ -43,7 +43,7 @@ $stmt=$pdo->query($sql);
               <!-- <a href="view.php?id=<?php echo $value['id']; ?>"> -->
                 <?php echo $value['title']; ?>
               <!-- </a> -->
-              <div class="date"><form action="edit.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="編集"></form> 更新日:<?php echo $value['date']; ?></div>
+              <div class="date"><form action="edit.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="編集"></form><form action="delete.php" method="post"><input type="hidden" name="id" value="<?php echo $value['id']; ?>"><input type="submit" value="削除"></form> 更新日:<?php echo $value['date']; ?></div>
             </li>
           <?php endforeach; ?>
         </ul>
