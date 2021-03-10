@@ -73,7 +73,8 @@ section .list{
 .list ul{
   height: 250px;
   overflow-y: auto;
-
+  /* list-style-type: none; */
+  /* padding-left: 0; */
 }
 
 .list p{
@@ -108,4 +109,11 @@ ul li:hover{
 
 #section{
   display: none;
+}
+
+@media screen and (max-width: 480px){
+  .list ul{
+    /* list-style-type: none; */
+    padding-left: 0;
+  }
 }
