@@ -38,6 +38,8 @@ $stmt=$pdo->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>記事編集</title>
   <link rel="stylesheet" href="style/main.css">
+  <link rel="shortcut icon" href="image/oka_icon.ico" type="image/x-icon">
+  <link rel="icon" href="image/oka_icon.ico">
 </head>
 <body>
   <main>

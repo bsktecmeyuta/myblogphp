@@ -58,6 +58,8 @@ $num =( int )$num;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $title; ?></title>
   <link rel="stylesheet" href="style/view.css">
+  <link rel="shortcut icon" href="image/oka_icon.ico" type="image/x-icon">
+  <link rel="icon" href="image/oka_icon.ico">
 </head>
 <body>
   <main>
