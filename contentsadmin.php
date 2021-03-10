@@ -31,10 +31,10 @@ $stmt=$pdo->query($sql);
 </head>
 <body>
   <main>
-    <header>
+    <header id="header">
       <h1><em>&lt;</em>記事編集<em>&gt;</em></h1>
     </header>
-    <section>
+    <section id="section">
       <div class="list">
       <p><em>&lt;</em>記事一覧<em>&gt;</em></p>
         <ul>
@@ -68,5 +68,7 @@ $stmt=$pdo->query($sql);
       <div class="backto"><a href="write.php">戻る</a></div>
     </section>
   </main>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="jquery/program.js"></script>
 </body>
 </html>

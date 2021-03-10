@@ -41,3 +41,11 @@ textarea{
 .title,.text,.submit{
   text-align: center;
 }
+
+#header{
+  display: none;
+}
+
+#section{
+  display: none;
+}

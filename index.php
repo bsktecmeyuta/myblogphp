@@ -26,10 +26,10 @@ $stmt2=$pdo->query($sql);
 </head>
 <body>
   <main>
-    <header>
+    <header id="header">
       <h1><em>&lt;</em>My Blog<em>&gt;</em></h1>
     </header>
-    <section>
+    <section id="section">
       <div class="list">
       <p><em>&lt;</em>記事一覧<em>&gt;</em></p>
         <ul>
@@ -43,5 +43,7 @@ $stmt2=$pdo->query($sql);
       </div>
     </section>
   </main>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="jquery/program.js"></script>
 </body>
 </html>

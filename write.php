@@ -59,6 +59,9 @@ if(!empty($_POST['submit'])){
 
     $sql->execute();
 
+    $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
+    $stmt2=$pdo->query($sql);
+
     echo "<script>alert('投稿完了');window.location.href = './write.php';</script>";
   }
   echo "<script>window.location.href = './write.php';</script>";
@@ -98,10 +101,10 @@ if(!empty($_POST['logout'])){
     <input type="submit" name="login_btn" value="ログイン">
   </form>
 <?php else: ?>
-  <header>
+  <header id="header">
     <h1><em>&lt;</em>投稿<em>&gt;</em></h1>
   </header>
-  <section>
+  <section id="section">
     <form action="" method="post">
       <div class="title">
         <label for="title"><em>&lt;</em>タイトル<em>&gt;</em></label>
@@ -121,5 +124,7 @@ if(!empty($_POST['logout'])){
   </section>
 <?php endif; ?>
 </main>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="jquery/program.js"></script>
 </body>
 </html>

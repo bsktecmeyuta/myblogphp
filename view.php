@@ -51,16 +51,18 @@ $num =( int )$num;
 </head>
 <body>
   <main>
-    <header>
+    <header id="header">
       <h1><em>&lt;</em><?php echo $title; ?><em>&gt;</em></h1>
       <p><u><?php echo "更新日:".$date;?></u></p>
     </header>
-    <section>
+    <section id=section>
       <p><?php echo nl2br($text); ?></p>
       <a href="view.php?id=<?php echo $num-1; ?>">&lt;</a>
       <a href="index.php">戻る</a>
       <a href="view.php?id=<?php echo $num+1; ?>">&gt;</a>
     </section>
   </main>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="jquery/program.js"></script>
 </body>
 </html>

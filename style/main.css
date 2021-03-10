@@ -83,6 +83,11 @@ section .list{
 .list ul li{
   border-bottom: 1px solid black;
 }
+
+ul li:hover{
+  background-color: azure;
+}
+
 .list ul li .date{
   text-align: end;
   /* display: flex; */
@@ -95,4 +100,12 @@ section .list{
 
 .forms{
   display: flex;
+}
+
+#header{
+  display: none;
+}
+
+#section{
+  display: none;
 }

@@ -39,3 +39,11 @@ section p{
 section a{
   margin: 10px;
 }
+
+#header{
+  display: none;
+}
+
+#section{
+  display: none;
+}
