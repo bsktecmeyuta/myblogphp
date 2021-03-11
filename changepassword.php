@@ -60,7 +60,7 @@ if(!empty($_SESSION['login_flag'])){
   // $line=json_decode($line,true);
   // $line=openssl_decrypt($line,$method,'password',0,$iv);
   $line=convert($line, $pad);;
-  echo $line;
+  // echo $line;
   // var_dump($line);
 }else{
   echo "<script>window.location.href = './write.php';</script>";
@@ -80,6 +80,7 @@ if(!empty($_SESSION['login_flag'])){
 </head>
 <body>
   <form action="" method="post">
+    <?php echo $line; ?>
     <input type="password" name="newpassword" id="newpassword" placeholder="新しいパスワード">
     <input type="submit" name="changesub" value="変更">
     <a href="write.php">戻る</a>
