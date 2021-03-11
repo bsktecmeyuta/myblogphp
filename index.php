@@ -20,6 +20,7 @@ try {
 
 $sql="SELECT * FROM contents ORDER BY date ASC";
 $stmt=$pdo->query($sql);
+// $id_list[] = $stmt->fetchAll();
 
 $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
 $stmt2=$pdo->query($sql);
@@ -34,27 +35,24 @@ $stmt2=$pdo->query($sql);
   <link rel="stylesheet" href="style/main.css">
   <link rel="shortcut icon" href="image/oka_icon.ico" type="image/x-icon">
   <link rel="icon" href="image/oka_icon.ico">
-  <title>My Blog</title>
+  <title>ゴマ団子あげる</title>
+  <meta name="description" content="ブログサイト『ゴマ団子あげる』">
 </head>
 <body>
   <main>
     <header id="header">
-      <h1><em>&lt;</em>My Blog<em>&gt;</em></h1>
+      <h1><em>&lt;</em>ゴマ団子あげる<em>&gt;</em></h1>
     </header>
     <section id="section">
       <div class="list">
       <p><em>&lt;</em>記事一覧<em>&gt;</em></p>
         <ul>
-        <?php if(!empty($stmt)): ?>
           <?php foreach($stmt as $value): ?>
             <li>
               <a href="view.php?id=<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a>
               <div class="date">更新日:<?php echo $value['date']; ?></div>
             </li>
           <?php endforeach; ?>
-        <?php else: ?>
-          <p>記事がありません</p>
-        <?php endif; ?>
         </ul>
       </div>
     </section>

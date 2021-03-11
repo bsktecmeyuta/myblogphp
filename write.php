@@ -77,10 +77,33 @@ if(!empty($_POST['submit'])){
   echo "<script>window.location.href = './write.php';</script>";
 }
 
+// ワンタイムパッド
+$pad = [
+  11,10,12,20,148,22,87,91,239,187,206,215,103,207,192,46,75,243,
+  204,61,361,121,210,145,167,108,78,166,129,109,239,138,134,150,196,
+  217,63,158,201,204,66,181,198,54,0,0,130,163,212,57,167,
+  169,115,170,50,109,116,173,177,252,242,233,3,33,28,139,73,
+];
+
+// ワンタイムパッドで暗号化
+function convert($str, $pad) {
+  $res = "";
+  for ($i = 0; $i < strlen($str); $i++) {
+    // 一文字取り出し、ASCIIコードに変換
+    $c = ord(substr($str, $i, 1));
+    // XORで暗号化
+    $cx = $c ^ $pad[$i];
+    // ASCIIコードを文字に変換
+    $res .= chr($cx);
+  }
+  return $res;
+}
+
 if(!empty($_POST['login_btn'])){
   $login_password= $_POST['password'];
   $fileopen=fopen("password.txt","r");
   $line=fgets($fileopen);
+  $line=convert($line,$pad);
   // echo $login_password."<br>".$line;
   if($line==$login_password){
     $_SESSION['login_flag']=true;
