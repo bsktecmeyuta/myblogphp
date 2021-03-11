@@ -37,6 +37,13 @@ $stmt2=$pdo->query($sql);
   <link rel="icon" href="image/oka_icon.ico">
   <title>ゴマ団子あげる</title>
   <meta name="description" content="ブログサイト『ゴマ団子あげる』">
+  <meta property="og:title" content="ブログサイト『ゴマ団子あげる』" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="http://or0e9abi5m.php.xdomain.jp/myblog/index.php" />
+  <meta property="og:description" content="ブログサイト『ゴマ団子あげる』" />
+  <meta property="og:site_name" content="ブログサイト『ゴマ団子あげる』" />
+  <meta property="og:image" content="http://or0e9abi5m.php.xdomain.jp/myblog/image/oka_icon.ico" />
+  <meta name="twitter:card"       content="summary">
 </head>
 <body>
   <main>

@@ -112,7 +112,7 @@ if(!empty($_POST['login_btn'])){
 
 if(!empty($_POST['logout'])){
   unset($_SESSION['login_flag']);
-  echo "<script>alert('ログアウトしました');</script>";
+  echo "<script>alert('ログアウトしました');window.location.href='./write.php';</script>";
 }
 
 ?>
@@ -130,11 +130,16 @@ if(!empty($_POST['logout'])){
 <body>
 <main>
 <?php if(empty($_SESSION['login_flag'])): ?>
+<header id="header">
+    <label for="password"><h1><em>&lt;</em>ログイン<em>&gt;</em></h1></label>
+</header>
+<section id="section">
   <form action="" method="POST">
-    <label for="password"><h1>ログイン</h1></label>
     <input type="password" name="password" id="password" placeholder="パスワードを入力">
     <input type="submit" name="login_btn" value="ログイン">
   </form>
+</section>
+
 <?php else: ?>
   <header id="header">
     <h1><em>&lt;</em>投稿<em>&gt;</em></h1>

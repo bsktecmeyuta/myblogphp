@@ -49,6 +49,9 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
 $num =$_GET['id'];
 $num =( int )$num;
 // echo $num;
+
+$url= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$iconurl= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,6 +63,14 @@ $num =( int )$num;
   <link rel="stylesheet" href="style/view.css">
   <link rel="shortcut icon" href="image/oka_icon.ico" type="image/x-icon">
   <link rel="icon" href="image/oka_icon.ico">
+  <meta name="description" content="<?php echo $text; ?>">
+  <meta property="og:title" content="<?php echo $title; ?>" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="<?php echo $url; ?>" />
+  <meta property="og:description" content="<?php echo $text; ?>" />
+  <meta property="og:site_name" content="<?php echo $title; ?>" />
+  <meta property="og:image" content="http://or0e9abi5m.php.xdomain.jp/myblog/image/oka_icon.ico" />
+  <meta name="twitter:card"       content="summary">
 </head>
 <body>
   <main>
