@@ -47,3 +47,20 @@ section a{
 #section{
   display: none;
 }
+
+@media screen and (max-width: 480px){
+
+  main header{
+    overflow-y: auto;
+  }
+
+  main header h1{
+    font-size: 1rem;
+    width: 300px;
+    /* overflow-y: auto; */
+  }
+
+  main header h1 em{
+    margin: 0;
+  }
+}

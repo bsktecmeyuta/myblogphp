@@ -32,7 +32,7 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
   $aryItem = $sth -> fetchAll(PDO::FETCH_ASSOC);
 
   if(empty($aryItem)){
-    echo "<script>alert('記事が見つかりませんでした');window.location.href = './index.php';</script>";
+    echo "<script>alert('記事が見つかりませんでした');window.location.href = './index.php';</script>記事が見つかりませんでした";
   }
 
   foreach($aryItem as $value){

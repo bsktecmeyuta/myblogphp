@@ -20,6 +20,7 @@ try {
 
 $sql="SELECT * FROM contents ORDER BY date ASC";
 $stmt=$pdo->query($sql);
+
 // $id_list[] = $stmt->fetchAll();
 
 $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
@@ -44,6 +45,14 @@ $stmt2=$pdo->query($sql);
   <meta property="og:site_name" content="ブログサイト『ゴマ団子あげる』" />
   <meta property="og:image" content="http://or0e9abi5m.php.xdomain.jp/myblog/image/oka_icon.ico" />
   <meta name="twitter:card"       content="summary">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFM2WCEZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JFM2WCEZW3');
+  </script>
 </head>
 <body>
   <main>
