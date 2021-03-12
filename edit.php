@@ -31,6 +31,7 @@ if(!empty($_POST['submit'])){
   $id=$_POST['id'];
   $new_title=$_POST['title'];
   $new_text=$_POST['text'];
+  $new_keywords=$_POST['keywords'];
   // echo $title."<br>".$text;
   // if(!empty($_POST['']))
   $tit=htmlspecialchars($new_title, ENT_QUOTES);
@@ -43,6 +44,7 @@ if(!empty($_POST['submit'])){
   $new_title=htmlspecialchars($new_title, ENT_QUOTES);
   $new_title=preg_replace( '/\\r\\n|\\n|\\r/', '', $new_title);
   $new_text=htmlspecialchars($new_text, ENT_QUOTES);
+  $new_keywords=htmlspecialchars($new_keywords, ENT_QUOTES);
   if(empty($tit)){
     // echo $txt;
     // var_dump($txt);
@@ -61,11 +63,11 @@ if(!empty($_POST['submit'])){
   if(empty($send_flag)){
 
 
-    $sql="UPDATE contents SET title=:title,text=:text,date=date WHERE id=:id";
+    $sql="UPDATE contents SET title=:title,text=:text,date=date,keywords=:keywords WHERE id=:id";
 
     $stmt=$pdo->prepare($sql);
 
-    $stmt->execute(array(':title'=>$new_title,':text'=>$new_text,'id'=>$id));
+    $stmt->execute(array(':title'=>$new_title,':text'=>$new_text,':keywords'=>$new_keywords,':id'=>$id));
 
     echo "<script>alert('編集完了');window.location.href = './contentsadmin.php';</script>";
   }else{
@@ -93,7 +95,7 @@ if(!empty($_POST['id'])){
     $title=$value['title'];
     $text=$value['text'];
     $date=$value['date'];
-
+    $keywords=$value['keywords'];
   }
 
 }else{
@@ -122,6 +124,10 @@ if(!empty($_POST['id'])){
         <label for="title"><em>&lt;</em>タイトル<em>&gt;</em></label>
       </div>
       <input type="text" name="title" id="title" placeholder="タイトルを入力" value="<?php echo $title; ?>">
+      <div class="keywords">
+        <label for="keywords"><em>&lt;</em>キーワード<em>&gt;</em></label>
+      </div>
+      <input type="text" name="keywords" id="keywords" placeholder="キーワード(カンマで区切る)" value="<?php echo $keywords; ?>">
       <div class="text">
         <label for="text"><em>&lt;</em>内容<em>&gt;</em></label>
       </div>

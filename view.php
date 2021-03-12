@@ -39,7 +39,7 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
     $title=$value['title'];
     $text=$value['text'];
     $date=$value['date'];
-
+    $keywords=$value['keywords'];
   }
 
 }else{
@@ -63,6 +63,7 @@ $iconurl= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_H
   <link rel="stylesheet" href="style/view.css">
   <link rel="shortcut icon" href="image/oka_icon.ico" type="image/x-icon">
   <link rel="icon" href="image/oka_icon.ico">
+  <meta name="keywords" content="<?php echo $keywords; ?>">
   <meta name="description" content="<?php echo $text; ?>">
   <meta property="og:title" content="<?php echo $title; ?>" />
   <meta property="og:type"        content="website" />

@@ -64,6 +64,7 @@
       $title=$value['title'];
       $text=$value['text'];
       $date=$value['date'];
+      $keywords=$value['keywords'];
   
     }
   
@@ -93,6 +94,10 @@
         <label for="title"><em>&lt;</em>タイトル<em>&gt;</em></label>
       </div>
       <input type="text" name="title" id="title" placeholder="タイトルを入力" value="<?php echo $title; ?>" readonly>
+      <div class="keywords">
+        <label for="keywords"><em>&lt;</em>キーワード<em>&gt;</em></label>
+      </div>
+      <input type="text" name="keywords" id="keywords" placeholder="キーワード(カンマで区切る)" value="<?php echo $keywords; ?>">
       <div class="text">
         <label for="text"><em>&lt;</em>内容<em>&gt;</em></label>
       </div>

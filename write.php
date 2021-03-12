@@ -31,6 +31,7 @@ try {
 if(!empty($_POST['submit'])){
   $title=$_POST['title'];
   $text=$_POST['text'];
+  $keywords=$_POST['keywords'];
   // echo $title."<br>".$text;
   // if(!empty($_POST['']))
   $tit=htmlspecialchars($title, ENT_QUOTES);
@@ -39,10 +40,14 @@ if(!empty($_POST['submit'])){
   $txt=htmlspecialchars($text, ENT_QUOTES);
   $txt=preg_replace( '/\\r\\n|\\n|\\r/', '', $txt);
   $txt  = preg_replace("/( |　)/", "", $txt );
+  $key=htmlspecialchars($keywords, ENT_QUOTES);
+  $key=preg_replace( '/\\r\\n|\\n|\\r/', '', $key);
+  $key  = preg_replace("/( |　)/", "", $key );
 
   $title=htmlspecialchars($title, ENT_QUOTES);
   $title=preg_replace( '/\\r\\n|\\n|\\r/', '', $title);
   $text=htmlspecialchars($text, ENT_QUOTES);
+  $keywords=htmlspecialchars($keywords, ENT_QUOTES);
   if(empty($tit)){
     // echo $txt;
     // var_dump($txt);
@@ -61,11 +66,12 @@ if(!empty($_POST['submit'])){
   if(empty($send_flag)){
     // echo "go";
     $date=date("Y/m/d H:i:s");
-    $sql=$pdo->prepare("INSERT INTO contents(id,title,text,date) VALUE(:id,:title,:text,:date)");
+    $sql=$pdo->prepare("INSERT INTO contents(id,title,text,date,keywords) VALUE(:id,:title,:text,:date,:keywords)");
     $sql->bindParam(":id",$id);
     $sql->bindParam(":title",$title);
     $sql->bindParam(":text",$text);
     $sql->bindParam(":date",$date);
+    $sql->bindParam(":keywords",$keywords);
 
     $sql->execute();
 
@@ -150,6 +156,10 @@ if(!empty($_POST['logout'])){
         <label for="title"><em>&lt;</em>タイトル<em>&gt;</em></label>
       </div>
       <input type="text" name="title" id="title" placeholder="タイトルを入力">
+      <div class="keywords">
+        <label for="keywords"><em>&lt;</em>キーワード<em>&gt;</em></label>
+      </div>
+      <input type="text" name="keywords" id="keywords" placeholder="キーワード(カンマで区切る)">
       <div class="text">
         <label for="text"><em>&lt;</em>内容<em>&gt;</em></label>
       </div>
