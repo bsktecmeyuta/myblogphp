@@ -1,5 +1,4 @@
 <?php
-// echo "hi";
 date_default_timezone_set("Asia/Tokyo");
 session_start();
 $id=null;
@@ -9,7 +8,6 @@ $tit=null;
 $txt=null;
 $date=null;
 $send_flag=null;
-// $_SESSION['login_flag']=null;
 // $pdo=new PDO("mysql:dbname=myblog;host=localhost;  charset=utf8;","root","password");
 
 // if($pdo){
