@@ -78,6 +78,7 @@ $iconurl= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_H
     <header id="header">
       <h1><em>&lt;</em><?php echo $title; ?><em>&gt;</em></h1>
       <p><u><?php echo "更新日:".$date;?></u></p>
+      <p><a href="https://twitter.com/share?url=<?php echo $url; ?>&text=<?php echo $title; ?>&count=none&lang=ja" target="_blanck">ツイート</a></p>
     </header>
     <section id=section>
       <p><?php echo nl2br($text); ?></p>
