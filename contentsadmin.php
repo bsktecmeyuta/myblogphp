@@ -70,6 +70,7 @@ $stmt=$pdo->query($sql);
                 </div>
                  
                  <!-- <div class="date2"> -->
+                  閲覧数:<?php echo $value['accesscount']; ?>
                   更新日:<?php echo $value['date']; ?>
                  <!-- </div> -->
               </div>

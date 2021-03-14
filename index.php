@@ -66,7 +66,7 @@ $stmt2=$pdo->query($sql);
           <?php foreach($stmt as $value): ?>
             <li>
               <a href="view.php?id=<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a>
-              <div class="date">更新日:<?php echo $value['date']; ?></div>
+              <div class="date"><div>閲覧数:<?php echo $value['accesscount']; ?></div>更新日:<?php echo $value['date']; ?></div>
             </li>
           <?php endforeach; ?>
         </ul>

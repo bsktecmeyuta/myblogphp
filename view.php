@@ -36,11 +36,18 @@ if(!empty($_GET['id']) && empty($_POST['id'])){
   }
 
   foreach($aryItem as $value){
+    $id=$value['id'];
     $title=$value['title'];
     $text=$value['text'];
     $date=$value['date'];
     $keywords=$value['keywords'];
+    $accesscount=$value['accesscount'];
   }
+
+  $accesscount++;
+  $sql="UPDATE contents SET title=title,text=text,date=date,keywords=keywords,accesscount=:accesscount WHERE id=:id";
+  $stmt=$pdo->prepare($sql);
+  $stmt->execute(array(':accesscount'=>$accesscount,':id'=>$id));
 
 }else{
   echo "<script>window.location.href = './index.php';</script>";
@@ -52,6 +59,8 @@ $num =( int )$num;
 
 $url= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $iconurl= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -78,7 +87,8 @@ $iconurl= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_H
     <header id="header">
       <h1><em>&lt;</em><?php echo $title; ?><em>&gt;</em></h1>
       <p><u><?php echo "更新日:".$date;?></u></p>
-      <p><a href="https://twitter.com/share?url=<?php echo $url; ?>&text=<?php echo $title; ?>&count=none&lang=ja" target="_blanck">ツイート</a></p>
+      <p class="twitterbutton"><a href="https://twitter.com/share?url=<?php echo $url; ?>&text=<?php echo $title; ?>&count=none&lang=ja" target="_blanck">ツイート</a></p>
+      <p>閲覧数:<?php echo $accesscount; ?></p>
     </header>
     <section id=section>
       <p><?php echo nl2br($text); ?></p>
