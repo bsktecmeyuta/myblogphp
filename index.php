@@ -1,14 +1,7 @@
 <?php
-// echo "say hello";
-// $pdo=new PDO("mysql:dbname=myblog;host=localhost;  charset=utf8;","root","password");
-
-// if($pdo){
-//   // echo "OK";
-// }else{
-//   // echo "NO";
-//   $pdo=new PDO("mysql:dbname=or0e9abi5m_onlinemeeting;host=157.112.147.201; port=3306; charset=utf8;","or0e9abi5m_1","userlistid");
-// }
-
+date_default_timezone_set("Asia/Tokyo");
+$id=null;
+$url= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 try {
   // $dbh = new PDO($dsn, $user, $password);
   // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -25,6 +18,7 @@ $stmt=$pdo->query($sql);
 
 $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
 $stmt2=$pdo->query($sql);
+
 
 ?>
 <!DOCTYPE html>
@@ -73,6 +67,14 @@ $stmt2=$pdo->query($sql);
       </div>
     </section>
   </main>
+  <div id="popup">
+  <div id="close">× 閉じる</div>
+    <label for="mailform">メール通知を受け取る</label>
+    <form action="addmail.php" method="post">
+      <input type="email" name="mailform" id="mailform" placeholder="sample@mail.com">
+      <input type="submit" name="mailsubmit" value="送信">
+    </form>    
+  </div>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="jquery/program.js"></script>
 </body>

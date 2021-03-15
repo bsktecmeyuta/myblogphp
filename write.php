@@ -26,6 +26,8 @@ try {
   // echo 'Connection failed: ' . $e->getMessage();
 }
 
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
 if(!empty($_POST['submit'])){
   $title=$_POST['title'];
   $text=$_POST['text'];
@@ -64,7 +66,7 @@ if(!empty($_POST['submit'])){
   if(empty($send_flag)){
     // echo "go";
     $date=date("Y/m/d H:i:s");
-    $sql=$pdo->prepare("INSERT INTO contents(id,title,text,date,keywords) VALUE(:id,:title,:text,:date,:keywords)");
+    $sql=$pdo->prepare("INSERT INTO contents(id,title,text,date,keywords) VALUES(:id,:title,:text,:date,:keywords)");
     $sql->bindParam(":id",$id);
     $sql->bindParam(":title",$title);
     $sql->bindParam(":text",$text);
@@ -73,8 +75,58 @@ if(!empty($_POST['submit'])){
 
     $sql->execute();
 
-    $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
-    $stmt2=$pdo->query($sql);
+    // $sql="SET @i := 0; UPDATE contents SET id = (@i := @i +1);";
+    // $stmt2=$pdo->query($sql);
+
+    $sql="SELECT * FROM myblogmaillist";
+    $sth=$pdo->query($sql);
+
+    foreach($sth as $value){
+
+      $to = $value['mails']; // カンマに注意
+      $url="http://or0e9abi5m.php.xdomain.jp/myblog/view.php?id={$value['id']}";
+
+      // 表題
+      $subject = $title;
+  
+      // 本文
+      $message = "
+        <html>
+        <head>
+          <title>新記事が投稿されました</title>
+        </head>
+        <body>
+          <p>新記事が投稿されました</p>  
+          <p>サイトURL</p>   
+          <a href='{$url}'>{$url}</a>
+          <!--<p>後日ZOOMのリンクを送信します。</p>
+          <table>
+            <tr>
+              <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+            </tr>
+            <tr>
+              <td>Johny</td><td>10th</td><td>August</td><td>1970</td>
+            </tr>
+            <tr>
+              <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+            </tr>
+          </table>-->
+        </body>
+        </html>
+      ";
+  
+      // HTML メールを送信するには Content-type ヘッダが必須
+      $headers[] = 'MIME-Version: 1.0';
+      $headers[] = 'Content-type: text/html; charset=iso-2022-jp';
+  
+      // 送信する
+      if(mail($to, $subject, $message, implode("\r\n", $headers))){
+        // echo "OK";
+      }else{
+        // echo "NO";
+      }
+
+    }
 
     echo "<script>alert('投稿完了');window.location.href = './write.php';</script>";
   }
