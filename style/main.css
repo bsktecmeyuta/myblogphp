@@ -115,8 +115,9 @@ ul li:hover{
   display:none;
   position:fixed;
   /* border: 1px solid black; */
-  top:80%;
-  left:80%;
+  /* top:80%;
+  left:80%; */
+  width: auto;
   background-color: blanchedalmond;
 }
 
@@ -141,8 +142,8 @@ ul li:hover{
     padding-left: 0;
   }
 
-  #popup{
+  /* #popup{
     top:80%;
     left:40%;
-  }
+  } */
 }

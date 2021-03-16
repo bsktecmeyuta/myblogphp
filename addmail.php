@@ -73,7 +73,8 @@ if(!empty($_POST['mailform'])){
 
     // HTML メールを送信するには Content-type ヘッダが必須
     $headers[] = 'MIME-Version: 1.0';
-    $headers[] = 'Content-type: text/html; charset=iso-2022-jp';
+    // $headers[] = 'Content-type: text/html; charset=iso-2022-jp';
+    $headers[] = 'Content-type: text/html; charset=utf-8';
 
     // // 送信する
     if(mail($to, $subject, $message, implode("\r\n", $headers))){

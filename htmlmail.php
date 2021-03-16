@@ -100,6 +100,18 @@
       echo "送信成功";
     }
   }
+
+  if(!empty($_POST['sub4'])){
+    $to = $_POST['mail'];
+    $subject = "[TEST] HTML MAIL";
+    $text=$_POST['text'];
+    $message = "<html><body><h1>This is HTML MAIL</h1><p>{$text}</p></body></html>";
+    // $headers = "From: from@example.com";
+    // $headers .= "\r\n";
+    // $headers .= "Content-type: text/html; charset=UTF-8";
+    $headers = "Content-type: text/html; charset=UTF-8";
+    mb_send_mail($to, $subject, $message, $headers); 
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,6 +133,11 @@
   <form action="" method="post">
     <input type="email" name="mail" id="">
     <input type="submit" name="sub3" value="sub3">
+  </form>
+  <form action="" method="post">
+    <input type="email" name="mail" id="">
+    <textarea name="text" id="" cols="30" rows="10"></textarea>
+    <input type="submit" name="sub4" value="sub4">
   </form>
 </body>
 </html>
