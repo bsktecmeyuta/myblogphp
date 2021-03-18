@@ -204,8 +204,12 @@ if(!empty($_POST['logout'])){
         <input type="submit" name="submit" value="投稿">
         <input type="submit" name="logout" value="ログアウト">
       </div>
-      <a href="changepassword.php">パスワード変更</a>
-      <a href="contentsadmin.php">記事編集</a>
+      <div><a href="changepassword.php">パスワード変更</a></div>
+      <div><a href="contentsadmin.php">記事編集</a></div>
+      <div><a href="mailadmin.php">メール管理</a></div>
+      
+      
+      
     </form>
   </section>
 <?php endif; ?>
