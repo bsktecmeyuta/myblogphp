@@ -11,6 +11,9 @@ try {
   // echo 'Connection failed: ' . $e->getMessage();
 }
 
+$sql="SET @i := 0; UPDATE myblogmaillist SET id = (@i := @i +1);";
+$stmt3=$pdo->query($sql);
+
 if(!empty($_POST['mailform'])){
   $mail=htmlspecialchars($_POST['mailform'], ENT_QUOTES);
   // $mail  = preg_replace("/( |　)/", "", $mail );
