@@ -83,6 +83,7 @@ if(!empty($_POST['submit'])){
         </head>
         <body>
           <p>新記事が投稿されました</p>  
+          <p>{$title}</p>  
           <p>サイトURL</p>   
           <a href='{$url}'>{$url}</a>
           <!--<p>後日ZOOMのリンクを送信します。</p>
