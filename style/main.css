@@ -111,6 +111,34 @@ ul li:hover{
   display: none;
 }
 
+footer{
+  /* text-align: center; */
+  margin: auto;
+  border: 1px solid black;
+  margin:0 20px;
+  display: none;
+}
+
+#footer_header{
+  padding: 0;
+}
+
+#footer_header p{
+  /* margin: auto; */
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+#footer_list{
+  margin: auto;
+  text-align: center;
+}
+
+#footer_list ul li{
+  text-align: left;
+}
+
+
 #popup{
   display:none;
   position:fixed;
@@ -118,6 +146,7 @@ ul li:hover{
   /* top:80%;
   left:80%; */
   width: auto;
+  padding: 0px 10px 10px 10px;
   background-color: blanchedalmond;
   top: 50%;
   left: 50%;
@@ -146,6 +175,11 @@ ul li:hover{
   .list ul{
     /* list-style-type: none; */
     padding-left: 0;
+  }
+
+  #footer_list ul{
+    padding-left: 0;
+    list-style-type: none; 
   }
 
   /* #popup{

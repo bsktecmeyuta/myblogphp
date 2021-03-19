@@ -56,6 +56,17 @@ $stmt=$pdo->query($sql);
       </div>
     </section>
   </main>
+  <footer id="footer">
+    <header id="footer_header">
+      <p><em>&lt;</em>SNS<em>&gt;</em></p>
+    </header>
+    <div id="footer_list">
+      <ul>
+        <li><a href="https://twitter.com/GOmadanGO_BIG?s=20" target="_blank">Twitter</a></li>
+      </ul>
+    </div>
+    
+  </footer>
   <div id="popup">
   <div id="close">× 閉じる</div>
     <label for="mailform">メール通知を受け取る</label>
