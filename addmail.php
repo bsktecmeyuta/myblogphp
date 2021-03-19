@@ -2,17 +2,12 @@
 date_default_timezone_set("Asia/Tokyo");
 $id=null;
 $url= (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-try {
-  // $dbh = new PDO($dsn, $user, $password);
-  // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $pdo=new PDO("mysql:dbname=myblog;host=localhost;  charset=utf8;","root","password");
-} catch (PDOException $e) {
-  $pdo=new PDO("mysql:dbname=or0e9abi5m_onlinemeeting;host=157.112.147.201; port=3306; charset=utf8;","or0e9abi5m_1","userlistid");
-  // echo 'Connection failed: ' . $e->getMessage();
-}
 
-$sql="SET @i := 0; UPDATE myblogmaillist SET id = (@i := @i +1);";
-$stmt3=$pdo->query($sql);
+include_once('sqlpdo.php');
+$pdo=connectdatebase();
+
+// $sql="SET @i := 0; UPDATE myblogmaillist SET id = (@i := @i +1);";
+// $stmt=$pdo->query($sql);
 
 if(!empty($_POST['mailform'])){
   $mail=htmlspecialchars($_POST['mailform'], ENT_QUOTES);
@@ -79,7 +74,7 @@ if(!empty($_POST['mailform'])){
     // $headers[] = 'Content-type: text/html; charset=iso-2022-jp';
     $headers[] = 'Content-type: text/html; charset=utf-8';
 
-    // // 送信する
+    // 送信する
     if(mail($to, $subject, $message, implode("\r\n", $headers))){
       // echo "OK";
     }else{
