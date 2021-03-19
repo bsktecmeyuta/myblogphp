@@ -22,6 +22,7 @@ $stmt=$pdo->query($sql);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>メール管理</title>
+  <link rel="stylesheet" href="style/mailadmin.css">
 </head>
 <body>
   <header>

@@ -1,0 +1,24 @@
+*{
+  /* outline: 1px solid black; */
+  margin: 0;
+}
+
+em{
+  color: aqua;
+}
+
+header h1{
+  text-align: center;
+}
+
+main{
+  text-align: center;
+}
+
+table{
+  margin: auto;
+}
+
+td{
+  outline: 1px solid black;
+}
