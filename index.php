@@ -63,6 +63,7 @@ $stmt=$pdo->query($sql);
     <div id="footer_list">
       <ul>
         <li><a href="https://twitter.com/GOmadanGO_BIG?s=20" target="_blank">Twitter</a></li>
+        <li><a href="https://kakuyomu.jp/users/GOmadanGO_BIG/works" target="_blank">カクヨム</a></li>
       </ul>
     </div>
     
