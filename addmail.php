@@ -18,12 +18,27 @@ if(!empty($_POST['mailform'])){
 
   if(!empty($mail)){
 
-    // $regist=$pdo->prepare("INSERT INTO myblogmaillist (id,mails,date) VALUES (:id,:mails,:date)");
-    // $regist->bindParam(':id',$id);
-    // $regist->bindParam(':mails',$mail);
-    // $regist->bindParam(':date',$date);
-
-    // $regist->execute();
+    $sql = "SELECT * 
+    FROM myblogmaillist 
+    WHERE mails=:mails";
+  
+    //prepareでSQL文をセット
+    $sth = $pdo -> prepare($sql);
+  
+    //bindValueで値をセット　:priceを値に置き換える
+    $sth -> bindParam(':mails', $mail);
+  
+    //executeで実行
+    $sth -> execute();
+  
+    //結果セットから配列を取得
+    $aryItem = $sth -> fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($aryItem) ;
+  
+    if(!empty($aryItem)){
+      echo "<script>alert('そのメールアドレスは登録されています');</script>";
+      goto end;
+    }
 
     $sql=$pdo->prepare("INSERT INTO myblogmaillist(id,mails,date) VALUES(:id,:mails,:date)");
     $sql->bindParam(":id",$id);
@@ -83,10 +98,13 @@ if(!empty($_POST['mailform'])){
 
     echo "<script>alert('確認メールを送信しました');window.location.href = './index.php';</script>";
 
-  }else{
-    echo "<script>window.location.href = './index.php';</script>";
-    
+
+
   }
+    
+  }else{
+    end:
+    echo "<script>window.location.href = './index.php';</script>";
 
   
 }
